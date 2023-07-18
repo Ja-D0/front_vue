@@ -1,7 +1,4 @@
-<script>
-export default {
-    name: "Footer"
-}
+<script scoped lang="scss">
 </script>
 
 <template>

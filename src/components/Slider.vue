@@ -25,6 +25,17 @@ export default {
             type: Number,
             required: true
         }
+    },
+    computed: {
+        titlefiled: function () {
+            return this.sliderValue === 1 && this.name === "Память" ? this.sliderValue = 1024 : this.sliderValue
+        },
+        infofield: function () {
+            return this.name === "Память" ? this.sliderValue / 512 * this.price : this.sliderValue * this.price
+        },
+        stepfield: function () {
+            return name === 'Память'? 1024: 1
+        }
     }
 }
 </script>
@@ -33,17 +44,17 @@ export default {
     <div class="slider-container">
         <div class="slider-result">
             <span class="product-title">{{ name }}: <span
-                    class="product-title__value">{{ sliderValue === 1 && name === "Память" ? sliderValue = 1024 : sliderValue }} {{ type }}</span></span>
+                    class="product-title__value">{{ titlefiled }} {{ type }}</span></span>
             <img class="info" :src="info">
-            <span>{{ name === "Память" ? sliderValue / 512 * price : sliderValue * price }}Р/мес</span>
+            <span>{{ infofield }}Р/мес</span>
         </div>
         <input class="slider" v-model="sliderValue" type="range" :min="min" :max="max"
-               :step="name === 'Память'? 1024: 1">
+               :step="stepfield">
     </div>
 </template>
 
 
-<style scoped>
+<style scoped lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
 .product-title__value {

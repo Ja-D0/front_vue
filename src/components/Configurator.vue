@@ -46,7 +46,7 @@ export default {
     </section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .configurator__image {
     width: 352px;
     height: 488px;

@@ -51,7 +51,7 @@ export default {
 </template>
 
 
-<style>
+<style scoped lang="scss">
 .product__description__bottom-items {
     display: flex;
     flex-direction: row;

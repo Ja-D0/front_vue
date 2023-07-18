@@ -14,7 +14,7 @@ export default {
 </template>
 
 
-<style scoped>
+<style scoped lang="scss">
 .trust-companies__companies__company {
     display: flex;
     justify-content: center;

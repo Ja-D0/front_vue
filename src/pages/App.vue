@@ -1,4 +1,4 @@
-<script>
+<script >
 
 import {defineComponent} from "vue";
 import Banner from "@/components/Banner.vue";
@@ -10,41 +10,51 @@ import TrustCompany from "@/components/TrustCompany.vue";
 import Slider from "@/components/Slider.vue";
 
 export default defineComponent({
-    components: {Slider, TrustCompany, Configurator, CompanyInformation, Footer, Product, Banner},
+    components: {Slider,
+        TrustCompany,
+        Configurator,
+        CompanyInformation,
+        Footer,
+        Product,
+        Banner},
     data() {
         return {
-            product_one: {
-                id: 1,
-                title: "Виртуальная машина 1С-Битрикс",
-                desc: "Производительность 180 ед. TOP 3 в рейтинге.",
-                price: "от 350 ₽",
-                img: "src/assets/products/PC.svg"
+            products: {
+                product_one: {
+                    id: 1,
+                    title: "Виртуальная машина 1С-Битрикс",
+                    desc: "Производительность 180 ед. TOP 3 в рейтинге.",
+                    price: "от 350 ₽",
+                    img: "src/assets/products/PC.svg"
+                },
+                product_two: {
+                    id: 2,
+                    title: "Виртуальный сервер VPS/VDS",
+                    desc: "Гарантия предоставления ресурсов.<br>Виртуализация VMWare.",
+                    price: "от 350 ₽",
+                    img: "src/assets/products/server.svg"
+                },
+                product_three: {
+                    id: 3,
+                    title: "1С облако",
+                    desc: "Работа с 1С:<br>Предприятие через интернет.",
+                    price: "от 350 ₽",
+                    img: "src/assets/products/cloud.svg"
+                },
             },
-            product_two: {
-                id: 2,
-                title: "Виртуальный сервер VPS/VDS",
-                desc: "Гарантия предоставления ресурсов.<br>Виртуализация VMWare.",
-                price: "от 350 ₽",
-                img: "src/assets/products/server.svg"
-            },
-            product_three: {
-                id: 3,
-                title: "1С облако",
-                desc: "Работа с 1С:<br>Предприятие через интернет.",
-                price: "от 350 ₽",
-                img: "src/assets/products/cloud.svg"
-            },
-            trust_one: {
-                image: "src/assets/trustCompanies/aeroflot.svg"
-            },
-            trust_two: {
-                image: "src/assets/trustCompanies/dc.svg"
-            },
-            trust_three: {
-                image: "src/assets/trustCompanies/delta.svg"
-            },
-            trust_four: {
-                image: "src/assets/trustCompanies/palata_rf.svg"
+            trust: {
+                trust_one: {
+                    image: "src/assets/trustCompanies/aeroflot.svg"
+                },
+                trust_two: {
+                    image: "src/assets/trustCompanies/dc.svg"
+                },
+                trust_three: {
+                    image: "src/assets/trustCompanies/delta.svg"
+                },
+                trust_four: {
+                    image: "src/assets/trustCompanies/palata_rf.svg"
+                }
             }
         }
     }
@@ -57,9 +67,9 @@ export default defineComponent({
     <Banner></Banner>
     <section class="products">
         <div class="products__items">
-            <Product v-bind="product_one"></Product>
-            <Product v-bind="product_two"></Product>
-            <Product v-bind="product_three"></Product>
+            <Product v-bind="products['product_one']"></Product>
+            <Product v-bind="products['product_two']"></Product>
+            <Product v-bind="products['product_three']"></Product>
         </div>
         <div class="products__btns">
             <button class="products__btn">
@@ -74,13 +84,13 @@ export default defineComponent({
         <div class="trust-companies-container">
             <span class="trust-companies__title">Компании, которые нам доверяют</span>
             <div class="trust-companies__companies">
-                <TrustCompany v-bind="trust_one"></TrustCompany>
-                <TrustCompany v-bind="trust_two"></TrustCompany>
-                <TrustCompany v-bind="trust_three"></TrustCompany>
-                <TrustCompany v-bind="trust_four"></TrustCompany>
-                <TrustCompany v-bind="trust_two"></TrustCompany>
-                <TrustCompany v-bind="trust_three"></TrustCompany>
-                <TrustCompany v-bind="trust_four"></TrustCompany>
+                <TrustCompany v-bind="trust['trust_one']"></TrustCompany>
+                <TrustCompany v-bind="trust['trust_two']"></TrustCompany>
+                <TrustCompany v-bind="trust['trust_three']"></TrustCompany>
+                <TrustCompany v-bind="trust['trust_four']"></TrustCompany>
+                <TrustCompany v-bind="trust['trust_two']"></TrustCompany>
+                <TrustCompany v-bind="trust['trust_three']"></TrustCompany>
+                <TrustCompany v-bind="trust['trust_four']"></TrustCompany>
             </div>
         </div>
     </section>
@@ -90,9 +100,7 @@ export default defineComponent({
 </template>
 
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+<style scoped lang="scss">
 .trust-companies {
     height: 186px;
 }

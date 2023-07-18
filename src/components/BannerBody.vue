@@ -3,11 +3,14 @@ export default {
     name: "BannerBody",
     data() {
         return {
-            nav_images: ["src/assets/banner/body/left.svg", "src/assets/banner/body/right.svg"],
+            nav_images: {
+                left: "src/assets/banner/body/left.svg",
+                right: "src/assets/banner/body/right.svg"
+            },
             vps: "src/assets/banner/body/vps.svg",
             vps_text: "VPS/VDS",
             title: "Виртуальный сервер VPS/VDS с бесплатным периодом 7 дней",
-            desc: "Гарантированное выделение ресурсов: <br> CPU, ОЗУ, дисков. Скорость канала 10 Гбит/сек.<br>3 строчка для примера."
+            desc: "Гарантированное выделение ресурсов: CPU, ОЗУ, дисков. Скорость канала 10 Гбит/сек. 3 строчка для примера."
         }
     }
 }
@@ -17,7 +20,7 @@ export default {
 <template>
     <div class="banner__body">
         <button class="banner__information__side-btn">
-            <img :src="nav_images[0]">
+            <img :src="nav_images['left']">
         </button>
         <div class="banner__information">
             <div class="banner__text">
@@ -38,13 +41,13 @@ export default {
             </div>
         </div>
         <button class="banner__information__side-btn">
-            <img :src="nav_images[1]">
+            <img :src="nav_images['right']">
         </button>
     </div>
 </template>
 
 
-<style>
+<style scoped lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
 .banner__information__vps{
     width: max-content;
@@ -108,7 +111,7 @@ export default {
     line-height: 32px;
     mix-blend-mode: normal;
     opacity: 0.7;
-    width: 414px;
+    width: 400px;
 }
 .banner__body {
     display: flex;

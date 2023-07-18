@@ -7,9 +7,11 @@ export default {
     components: {BannerBody, Menu},
     data() {
         return {
-            image_close: "../src/assets/banner/header/close.svg",
-            image_pointer: "../src/assets/banner/header/pointer.svg",
-            image_label: "../src/assets/banner/header/label.svg",
+            images: {
+                image_close: "../src/assets/banner/header/close.svg",
+                image_pointer: "../src/assets/banner/header/pointer.svg",
+                image_label: "../src/assets/banner/header/label.svg",
+            },
             new_text: "Открыт маркетплейс приложений. ",
             new_text_information: "Получите готовый сервер с настроенным приложением в 2 клика"
         }
@@ -23,14 +25,14 @@ export default {
     <section class="banner">
         <div class="header">
             <div class="header__right-items-container">
-                <img class="header__new" :src="image_label">
+                <img class="header__new" :src="images['image_label']">
                 <div>
                     <span class="text_weight">{{ new_text }}</span>
                     <span>{{ new_text_information }}</span>
                 </div>
-                <img class="header__pointer" :src="image_pointer">
+                <img class="header__pointer" :src="images['image_pointer']">
             </div>
-            <img class="header__close" :src="image_close">
+            <img class="header__close" :src="images['image_close']">
         </div>
         <Menu></Menu>
         <BannerBody></BannerBody>
@@ -38,7 +40,7 @@ export default {
 </template>
 
 
-<style>
+<style scoped lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
 
 .banner {

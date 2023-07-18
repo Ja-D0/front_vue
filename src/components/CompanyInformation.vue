@@ -10,7 +10,7 @@ export default {
     </section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .company-information{
     background: rgba(58, 61, 66, 1);
     width: 100%;
