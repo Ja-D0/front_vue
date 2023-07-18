@@ -12,6 +12,11 @@ export default {
             logo: "src/assets/banner/menu/logo.svg",
             chevron_down: "src/assets/banner/menu/chevron-down.svg"
         }
+    },
+    methods: {
+        goToLogin() {
+           return this.$router.push('/login')
+        }
     }
 }
 </script>
@@ -38,7 +43,7 @@ export default {
           </button>
           <span class="text_weight">{{ phone_number }}</span>
       </div>
-      <button class="menu__login-button">
+      <button class="menu__login-button" @click="goToLogin">
           <span>{{login}}</span>
       </button>
   </div>
@@ -119,6 +124,7 @@ export default {
 }
 .menu__login-button:hover{
     background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
 }
 
 </style>

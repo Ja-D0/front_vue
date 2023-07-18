@@ -34,7 +34,7 @@ export default {
             return this.name === "Память" ? this.sliderValue / 512 * this.price : this.sliderValue * this.price
         },
         stepfield: function () {
-            return name === 'Память'? 1024: 1
+            return this.name === 'Память'? 1024: 1
         }
     }
 }
